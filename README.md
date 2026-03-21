@@ -15,9 +15,9 @@ docker build -t ci-java-builder .
 Run from your Java project directory:
 As non-root user
 ```
-docker run --rm -v $(pwd):/home/ci ci-java-builder gradle build
+docker run -v $(pwd):/home/ci ci-java-builder gradle build
 ```
 As root:
 ```
-docker run --rm -u root -v $(pwd):/home/ci ci-java-builder gradle build
+docker run -u root -v $(pwd):/home/ci ci-java-builder gradle build
 ```
