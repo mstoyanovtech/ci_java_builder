@@ -4,8 +4,8 @@ RUN apk add --no-cache gradle bash && \
 	adduser -D -s /bin/bash ci && \
 	mkdir -p /gradle-home && \
 	chown ci:ci /gradle-home
-COPY --chown=ci:ci build.gradle /home/ci/build.gradle
-WORKDIR /home/ci
+COPY --chown=ci:ci build.gradle /workspace/build.gradle
+WORKDIR /workspace
 USER ci
 RUN gradle dependencies --no-daemon
 CMD ["gradle","build"]
