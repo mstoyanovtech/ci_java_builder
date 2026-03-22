@@ -9,16 +9,16 @@ Creating a Docker container image suitable for building Java applications in a C
 ## How to build
 ```
 docker build -t ci-java-builder .
+docker run -v $(pwd)/test_java_project:/workspace ci-java-builder gradle build
 ```
 
 ## How to test locally
-Run from your Java project directory:
+Run from your Java project directory:   
 As non-root user
 ```
-docker run -v $(pwd):/home/ci ci-java-builder gradle build
-docker run --rm -v $(pwd)/test_java_project:/workspace ci-java-builder java -jar /workspace/build/libs/workspace-1.0.jar
+docker run -v $(pwd)/test_java_project:/workspace ci-java-builder java -jar /workspace/build/libs/workspace-1.0.jar
 ```
 As root:
 ```
-docker run -u root -v $(pwd):/home/ci ci-java-builder gradle build
+docker run -u root -v $(pwd)/test_java_project:/workspace ci-java-builder java -jar /workspace/build/libs/workspace-1.0.jar
 ```
