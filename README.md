@@ -22,3 +22,8 @@ As root:
 ```
 docker run -u root -v $(pwd)/test_java_project:/workspace ci-java-builder java -jar /workspace/build/libs/workspace-1.0.jar
 ```
+
+Testing the class directly:
+```
+docker run -v "$(pwd)":/workspace ci-java-builder java -cp test_java_project/build/classes/java/main main
+```
