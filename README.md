@@ -16,6 +16,7 @@ Run from your Java project directory:
 As non-root user
 ```
 docker run -v $(pwd):/home/ci ci-java-builder gradle build
+docker run --rm -v $(pwd)/test_java_project:/workspace ci-java-builder java -jar /workspace/build/libs/workspace-1.0.jar
 ```
 As root:
 ```
